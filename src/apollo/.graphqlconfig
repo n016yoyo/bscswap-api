@@ -4,7 +4,7 @@
   "extensions": {
     "endpoints": {
       "BSCswap": {
-        "url": "https://subgraph.bscswap.com/subgraphs/name/bscswap/bscswap-subgraph",
+        "url": "https://subgraph.bscswap.com/subgraphs/name/bscswap/bscswap-subgraph-bake",
         "headers": {
           "user-agent": "JS GraphQL"
         },

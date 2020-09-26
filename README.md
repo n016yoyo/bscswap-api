@@ -1,4 +1,4 @@
-# BSCswap API
+# BSCswap API for BakerySwap
 
 The BSCswap API is a set of endpoints used by market aggregators (e.g. coinmarketcap.com) to surface BSCswap liquidity
 and volume information. All information is fetched from the underlying subgraphs.
@@ -17,14 +17,14 @@ only by WBNB in the pairs.
 
 The canonical WBNB address used by the BSCswap interface is `0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c`.
 
-## [`/summary`](https://api.bscswap.com/summary)
+## [`/summary`](https://api-bakery.bscswap.com/summary)
 
 Returns data for the top ~1000 BSCswap pairs, sorted by reserves.
 Results are edge cached for 15 minutes.
 
 ### Request
 
-`GET https://api.bscswap.com/summary`
+`GET https://api-bakery.bscswap.com/summary`
 
 ### Response
 
@@ -39,14 +39,14 @@ Results are edge cached for 15 minutes.
 }
 ```
 
-## [`/assets`](https://api.bscswap.com/assets)
+## [`/assets`](https://api-bakery.bscswap.com/assets)
 
 Returns the tokens in the top ~1000 pairs on BSCswap, sorted by reserves.
 Results are edge cached for 24 hours.
 
 ### Request
 
-`GET https://api.bscswap.com/assets`
+`GET https://api-bakery.bscswap.com/assets`
 
 ### Response
 
@@ -64,14 +64,14 @@ Results are edge cached for 24 hours.
 }
 ```
 
-## [`/tickers`](https://api.bscswap.com/tickers)
+## [`/tickers`](https://api-bakery.bscswap.com/tickers)
 
 Returns data for the top ~1000 BSCswap pairs, sorted by reserves.
 Results are edge cached for 1 minute.
 
 ### Request
 
-`GET https://api.bscswap.com/tickers`
+`GET https://api-bakery.bscswap.com/tickers`
 
 ### Response
 
@@ -101,7 +101,7 @@ Results are edge cached for 15 minutes.
 
 ### Request
 
-`GET https://api.bscswap.com/orderbook/:pair`
+`GET https://api-bakery.bscswap.com/orderbook/:pair`
 
 ### URL Parameters
 
@@ -142,7 +142,7 @@ trade types (types `"???"` and `"borrow-both"`).
 
 ### Request
 
-`GET https://api.bscswap.com/trades/:pair`
+`GET https://api-bakery.bscswap.com/trades/:pair`
 
 ### Response
 

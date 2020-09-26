@@ -1,7 +1,7 @@
 {
   "name": "bscswap-api",
   "version": 2,
-  "alias": "api.bscswap.com",
+  "alias": "api-bakery.bscswap.com",
   "builds": [{ "src": "src/**/*.ts", "use": "@now/node" }],
   "routes": [
     { "src": "/summary", "dest": "/src/summary.ts", "methods": ["GET"] },
