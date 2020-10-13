@@ -46,6 +46,7 @@ export const TOP_PAIRS = gql`
       reserve1
       volumeToken0
       volumeToken1
+      reserveUSD
     }
   }
 `
