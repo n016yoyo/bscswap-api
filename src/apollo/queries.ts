@@ -80,3 +80,11 @@ export const PAIR_FROM_TOKENS = gql`
     }
   }
 `
+
+export const TOTAL_LIQUIDITY = gql`
+  query TotalLiquidity {
+    bscswapFactories {
+      totalLiquidityUSD
+    }
+  }
+`
