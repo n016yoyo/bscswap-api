@@ -8,7 +8,9 @@ interface ReturnShape {
   [tokenIds: string]: { 
     last_price: any
     base_volume: any
-    quote_volume: any }
+    quote_volume: any 
+    pair_liquidity: any
+  }
 }
 
 export default async function(req: NowRequest, res: NowResponse): Promise<void> {
