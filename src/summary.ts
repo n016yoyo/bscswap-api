@@ -6,9 +6,9 @@ import { getTopPairs } from './_shared'
 
 interface ReturnShape {
   [tokenIds: string]: { 
-    last_price: string
-    base_volume: string
-    quote_volume: string }
+    last_price: any
+    base_volume: any
+    quote_volume: any }
 }
 
 export default async function(req: NowRequest, res: NowResponse): Promise<void> {
