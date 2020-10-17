@@ -3,14 +3,16 @@ import { NowRequest, NowResponse } from '@now/node'
 
 import { return200, return500 } from './utils/response'
 import { getTopPairs } from './_shared'
-import { getTotalLiquidity } from './_shared'
+//import { getTotalLiquidity } from './_shared'
+
+
 
 interface ReturnShape {
   [tokenIds: string]: { 
     last_price: any
     base_volume: any
     quote_volume: any 
-    pair_liquidity: any
+    pair_reserve: any
   }
 }
 
@@ -23,13 +25,13 @@ export default async function(req: NowRequest, res: NowResponse): Promise<void> 
       res,
       pairs.reduce<ReturnShape>((accumulator, pair): any => {
         const id0 = getAddress(pair.token0.id)
-        const id1 = getAddress(pair.token1.id)
-        const bscswapFactories = getTotalLiquidity()
+        const id1 = getAddress(pair.token1.id)        
+        //const bscswapFactories = getTotalLiquidity()
         accumulator[`${id0}_${id1}`] = {
           last_price: pair.price ?? '0',
           base_volume: pair.volumeToken0,
           quote_volume: pair.volumeToken1,   
-          pair_liquidity: bscswapFactories
+          pair_reserve: pair.reserve0
         }
         return accumulator
       }, {}),
