@@ -24,12 +24,12 @@ export default async function(req: NowRequest, res: NowResponse): Promise<void> 
       pairs.reduce<ReturnShape>((accumulator, pair): any => {
         const id0 = getAddress(pair.token0.id)
         const id1 = getAddress(pair.token1.id)
-        const totalLiquidityUSD = getTotalLiquidity()
+        const bscswapFactories = getTotalLiquidity()
         accumulator[`${id0}_${id1}`] = {
           last_price: pair.price ?? '0',
           base_volume: pair.volumeToken0,
           quote_volume: pair.volumeToken1,   
-          pair_liquidity: totalLiquidityUSD
+          pair_liquidity: bscswapFactories
         }
         return accumulator
       }, {}),
