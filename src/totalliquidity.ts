@@ -12,7 +12,7 @@ export default async function(req: NowRequest, res: NowResponse): Promise<void> 
       res,
       {
         return {
-          totalLiquidityUSD: bscswapFactories
+          totalLiquidityUSD: totalLiquidity
         }
       },
       60 * 15 // cache for 15 minutes
