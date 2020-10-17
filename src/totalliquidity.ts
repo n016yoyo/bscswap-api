@@ -7,7 +7,17 @@ export default async function(req: NowRequest, res: NowResponse): Promise<void> 
 
   try {
     const totalLiquidity = await getTotalLiquidity()
-
+    
+    return200(
+      res,
+      {
+        return {
+          totalLiquidityUSD: bscswapFactories
+        }
+      },
+      60 * 15 // cache for 15 minutes
+    )
+/*
     return200(
       res,
       totalLiquidity.map(bscswapFactories => {
@@ -17,6 +27,7 @@ export default async function(req: NowRequest, res: NowResponse): Promise<void> 
       }),
       60 * 15 // cache for 15 minutes
     )
+*/
   } catch (error) {
     return500(res, error)
   }
