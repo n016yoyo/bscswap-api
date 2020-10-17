@@ -11,7 +11,7 @@ export default async function(req: NowRequest, res: NowResponse): Promise<void> 
     return200(
       res,
       {
-        return {
+        return :{
           totalLiquidityUSD: totalLiquidity
         }
       },
