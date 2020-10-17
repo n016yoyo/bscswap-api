@@ -17,7 +17,7 @@ interface ReturnShape {
 export default async function(req: NowRequest, res: NowResponse): Promise<void> {
   try {
     const pairs = await getTopPairs()
-    const bscswapFactories = await getTotalLiquidity()
+    //const bscswapFactories = await getTotalLiquidity()
 
     return200(
       res,
@@ -28,7 +28,7 @@ export default async function(req: NowRequest, res: NowResponse): Promise<void> 
           last_price: pair.price ?? '0',
           base_volume: pair.volumeToken0,
           quote_volume: pair.volumeToken1,
-          pair_liquidity: bscswapFactories        
+          pair_liquidity: pair.totalLiquidityUSD        
         }
         return accumulator
       }, {}),
