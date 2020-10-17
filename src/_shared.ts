@@ -35,7 +35,7 @@ export interface MappedDetailedPair extends Pair {
   price?: string
   previous24hVolumeToken0: BigNumber
   previous24hVolumeToken1: BigNumber
-  totalLiquidity: BigNumber
+  //totalLiquidity: BigNumber
 }
 
 export async function getTopPairs(): Promise<MappedDetailedPair[]> {
@@ -119,8 +119,8 @@ export async function getTopPairs(): Promise<MappedDetailedPair[]> {
             pair.volumeToken1 && yesterday?.volumeToken1
               ? new BigNumber(pair.volumeToken1).minus(yesterday.volumeToken1)
               : new BigNumber(pair.volumeToken1)
-          totalLiquidity:
-              new BigNumber(pair.totalLiquidityUSD)
+          //totalLiquidity:
+          //    new BigNumber(pair.totalLiquidityUSD)
         }
       }
     ) ?? []
