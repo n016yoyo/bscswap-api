@@ -35,6 +35,7 @@ export interface MappedDetailedPair extends Pair {
   price?: string
   previous24hVolumeToken0: BigNumber
   previous24hVolumeToken1: BigNumber
+  reserveUSD: BigNumber
 }
 
 export async function getTopPairs(): Promise<MappedDetailedPair[]> {
