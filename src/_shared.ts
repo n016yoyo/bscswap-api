@@ -118,9 +118,7 @@ export async function getTopPairs(): Promise<MappedDetailedPair[]> {
           previous24hVolumeToken1:
             pair.volumeToken1 && yesterday?.volumeToken1
               ? new BigNumber(pair.volumeToken1).minus(yesterday.volumeToken1)
-              : new BigNumber(pair.volumeToken1)
-          //liquidity
-          //totalLiquidityUSD = getTotalLiquidity()            
+              : new BigNumber(pair.volumeToken1)       
         }
       }
     ) ?? []
