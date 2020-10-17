@@ -220,7 +220,7 @@ export async function getSwaps(tokenA: string, tokenB: string): Promise<SwapMapp
   return results
 }
 
-export async function getTotalLiquidity(): Promise<[string]> {
+export async function getTotalLiquidity(): Promise<[number]> {
     let {data : {
       bscswapFactories : [{totalLiquidityUSD: result}]
     }} = await client.query({
@@ -228,3 +228,25 @@ export async function getTotalLiquidity(): Promise<[string]> {
     })
     return result
 }
+
+
+/*
+// returns reserves of token a and b in the order they are queried
+export async function getReserves(tokenA: string, tokenB: string): Promise<[string, string]> {
+  const [token0, token1] = sortedFormatted(tokenA, tokenB)
+  return client
+    .query<PairReservesQuery, PairReservesQueryVariables>({
+      query: PAIR_RESERVES_BY_TOKENS,
+      variables: {
+        token0,
+        token1
+      }
+    })
+    .then(({ data: { pairs: [{ reserve0, reserve1 }] } }): [string, string] =>
+      tokenA.toLowerCase() === token0 ? [reserve0, reserve1] : [reserve1, reserve0]
+    )
+}
+*/
+
+//export type Pair = TopPairsQuery['pairs'][number]
+//export type BSCswapFactory = TotalLiquidityQuery['bscswapFactories'][number]
