@@ -3,6 +3,7 @@ import { NowRequest, NowResponse } from '@now/node'
 
 import { return200, return500 } from './utils/response'
 import { getTopPairs } from './_shared'
+import { getTotalLiquidity } from './_shared'
 
 interface ReturnShape {
   [tokenIds: string]: { 
@@ -16,6 +17,7 @@ interface ReturnShape {
 export default async function(req: NowRequest, res: NowResponse): Promise<void> {
   try {
     const pairs = await getTopPairs()
+    const bscswapFactories = await getTotalLiquidity()
 
     return200(
       res,
@@ -26,8 +28,7 @@ export default async function(req: NowRequest, res: NowResponse): Promise<void> 
           last_price: pair.price ?? '0',
           base_volume: pair.volumeToken0,
           quote_volume: pair.volumeToken1,
-          //pair_liquidity: pair.reserveUSD
-          pair_liquidity: pair.reserve0
+          pair_liquidity: bscswapFactories        
         }
         return accumulator
       }, {}),
